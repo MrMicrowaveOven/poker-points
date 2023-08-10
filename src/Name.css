@@ -1,9 +1,8 @@
 .name {
     position: absolute;
     font-size: 40px;
+    color: white;
 }
-
-/* 280 */
 
 .name1 {
     top: 420px;
