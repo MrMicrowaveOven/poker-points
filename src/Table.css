@@ -12,3 +12,25 @@
         0 0 0 30px brown,
         0 0 0 32px black;
 }
+
+.input {
+    position: absolute;
+    bottom: 40px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.card {
+    width: 70px;
+    margin-left: 50px;
+}
+
+.card-selected {
+    border: red solid 2px;
+}
+
+.card-on-table {
+    margin-top: 250px;
+    margin-right: 40px
+}
