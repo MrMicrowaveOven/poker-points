@@ -1,7 +1,10 @@
+import './Table.css';
+
 const Table = () => {
     return (
         <div>
-            <p>Hi!</p>
+            <div class="table">
+            </div>
         </div>
     )
 }
