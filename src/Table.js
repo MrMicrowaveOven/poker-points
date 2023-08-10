@@ -1,9 +1,10 @@
 import './Table.css';
 
-const Table = () => {
+const Table = (props) => {
     return (
         <div>
-            <div class="table">
+            <div className="table">
+                {props.children}
             </div>
         </div>
     )

@@ -1,0 +1,54 @@
+.name {
+    position: absolute;
+    font-size: 40px;
+}
+
+/* 280 */
+
+.name1 {
+    top: 420px;
+}
+
+.name2 {
+    top: 400px;
+    left: 650px;
+}
+
+.name3 {
+    top: 270px;
+    left: 840px;
+}
+
+.name4 {
+    top: 30px;
+    left: 840px;
+}
+
+.name5 {
+    top: -120px;
+    left: 650px;
+}
+
+.name6 {
+    top: -140px;
+}
+
+.name7 {
+    top: -120px;
+    left: 70px;
+}
+
+.name8 {
+    top: 10px;
+    left: -120px;
+}
+
+.name9 {
+    top: 250px;
+    left: -120px;
+}
+
+.name10 {
+    top: 400px;
+    left: 70px;
+}
