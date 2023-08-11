@@ -1,9 +1,10 @@
 {
   "files": {
-    "main.css": "/poker-points/static/css/main.0a5bd1dd.css",
-    "main.js": "/poker-points/static/js/main.cbf5718b.js",
+    "main.css": "/poker-points/static/css/main.e7b50416.css",
+    "main.js": "/poker-points/static/js/main.74564d11.js",
     "static/js/787.757b964a.chunk.js": "/poker-points/static/js/787.757b964a.chunk.js",
     "static/media/background.jpg": "/poker-points/static/media/background.392cedf08c4b0eeec228.jpg",
+    "static/media/faceDown.jpeg": "/poker-points/static/media/faceDown.519f80c35146e7d1b015.jpeg",
     "static/media/kc.webp": "/poker-points/static/media/kc.b2cc0f650fc73594894e.webp",
     "static/media/8c.webp": "/poker-points/static/media/8c.d31bf723c346cddfc664.webp",
     "static/media/5c.webp": "/poker-points/static/media/5c.544a3c3865b117439093.webp",
@@ -11,12 +12,12 @@
     "static/media/2c.webp": "/poker-points/static/media/2c.e478afbad7c011f07b77.webp",
     "static/media/ac.webp": "/poker-points/static/media/ac.e1eae83bd6b657be95bd.webp",
     "index.html": "/poker-points/index.html",
-    "main.0a5bd1dd.css.map": "/poker-points/static/css/main.0a5bd1dd.css.map",
-    "main.cbf5718b.js.map": "/poker-points/static/js/main.cbf5718b.js.map",
+    "main.e7b50416.css.map": "/poker-points/static/css/main.e7b50416.css.map",
+    "main.74564d11.js.map": "/poker-points/static/js/main.74564d11.js.map",
     "787.757b964a.chunk.js.map": "/poker-points/static/js/787.757b964a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0a5bd1dd.css",
-    "static/js/main.cbf5718b.js"
+    "static/css/main.e7b50416.css",
+    "static/js/main.74564d11.js"
   ]
 }
