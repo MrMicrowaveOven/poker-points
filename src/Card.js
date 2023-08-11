@@ -4,6 +4,7 @@ import three from './cards/3c.webp'
 import five from './cards/5c.webp'
 import eight from './cards/8c.webp'
 import king from './cards/kc.webp'
+import faceDownCard from './cards/faceDown.jpeg'
 
 const Card = (props) => {
     const {select, faceDown} = props
@@ -22,12 +23,24 @@ const Card = (props) => {
     let className = "card"
     if (props.selected) className += " card-selected"
     return (
-        props.number && <div onClick={() => select(props.number)}>
-            <img
-                className={className}
-                src={cardMap[props.number]}
-                alt="playing card"
-            />
+        <div>
+        {props.number &&
+            props.faceDown
+                ?
+                    <img
+                        className={className}
+                        onClick={() => select(props.number)}
+                        src={faceDownCard}
+                        alt="playing card"
+                    />
+                :
+                    <img
+                        className={className}
+                        onClick={() => select(props.number)}
+                        src={cardMap[props.number]}
+                        alt="playing card"
+                    />
+        }
         </div>
     )
 }
