@@ -6,7 +6,7 @@ import eight from './cards/8c.webp'
 import king from './cards/kc.webp'
 
 const Card = (props) => {
-    const {select} = props
+    const {select, faceDown} = props
     const cardMap = [
         null,
         one,
@@ -22,7 +22,7 @@ const Card = (props) => {
     let className = "card"
     if (props.selected) className += " card-selected"
     return (
-        <div onClick={() => select(props.number)}>
+        props.number && <div onClick={() => select(props.number)}>
             <img
                 className={className}
                 src={cardMap[props.number]}

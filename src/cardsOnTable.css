@@ -1,0 +1,60 @@
+.card-on-table {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.card-on-table1 {
+    left: 320px;
+    top: 280px;
+}
+
+.card-on-table2 {
+    left: 530px;
+    top: 280px;
+}
+
+.card-on-table3 {
+    left: 640px;
+    top: 210px;
+}
+
+.card-on-table4 {
+    left: 640px;
+    top: 90px;
+}
+
+.card-on-table5 {
+    left: 530px;
+    top: 20px;
+}
+
+.card-on-table6 {
+    left: 320px;
+    top: 20px;
+}
+
+.card-on-table7 {
+    left: 110px;
+    top: 20px;
+}
+
+.card-on-table8 {
+    left: 0px;
+    top: 90px;
+}
+
+.card-on-table9 {
+    left: 0px;
+    top: 210px;
+}
+
+.card-on-table10 {
+    left: 110px;
+    top: 280px;
+}
+
+.center {
+    left: 320px;
+    top: 150px;
+}

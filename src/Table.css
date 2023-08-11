@@ -29,8 +29,3 @@
 .card-selected {
     border: red solid 2px;
 }
-
-.card-on-table {
-    margin-top: 250px;
-    margin-right: 40px
-}
