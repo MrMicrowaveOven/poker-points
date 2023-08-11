@@ -8,12 +8,13 @@ const Table = (props) => {
     const cardsOnTable = [...Array(10).keys()].map(num => {
         const ownCard = num === 0
         return (<div className={"card-on-table card-on-table" + (num + 1)}>
-            <Card faceDown={!revealed && !ownCard} number={props.selectedCard} ownCard={ownCard} key={num}/>
+            <Card faceDown={!revealed} number={props.selectedCard} ownCard={ownCard} key={num}/>
         </div>)
     })
     return (
         <div className="table">
             {props.children}
+            <button onClick={() => reveal(true)} className="reveal-button">Reveal!</button>
             {cardsOnTable}
         </div>
     )

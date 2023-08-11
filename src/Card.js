@@ -28,25 +28,27 @@ const Card = (props) => {
         {number &&
             (faceDown
                 ?
-                    <img
-                        className={className}
-                        onClick={() => select(number)}
-                        src={faceDownCard}
-                        alt="playing card"
-                    />
-
-                :
                     <div>
+                        <img
+                            className={className + (ownCard ? " top-half" : "")}
+                            onClick={() => select(number)}
+                            src={faceDownCard}
+                            alt="playing card"
+                        />
                         {ownCard &&
                             <img
-                                className={className + " top-half"}
+                                className={className + " bottom-half"}
                                 onClick={() => select(number)}
-                                src={faceDownCard}
+                                src={cardMap[number]}
                                 alt="playing card"
                             />
                         }
+                    </div>
+
+                :
+                    <div>
                         <img
-                            className={className + (ownCard ? " bottom-half" : "")}
+                            className={className}
                             onClick={() => select(number)}
                             src={cardMap[number]}
                             alt="playing card"
