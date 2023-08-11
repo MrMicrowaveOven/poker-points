@@ -6,9 +6,9 @@ import './cardsOnTable.css'
 const Table = (props) => {
     const [revealed, reveal] = useState(false)
     const cardsOnTable = [...Array(10).keys()].map(num => {
-        console.log(num)
+        const ownCard = num === 0
         return (<div className={"card-on-table card-on-table" + (num + 1)}>
-            <Card faceDown={!revealed && num !== 0} number={props.selectedCard} key={num}/>
+            <Card faceDown={!revealed && !ownCard} number={props.selectedCard} ownCard={ownCard} key={num}/>
         </div>)
     })
     return (

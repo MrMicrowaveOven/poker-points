@@ -29,3 +29,16 @@
 .card-selected {
     border: red solid 2px;
 }
+
+.own-card {
+    position: absolute;
+}
+
+.top-half {
+    clip: rect(0px, 70px, 50px, 0px)
+}
+
+.bottom-half {
+    height: 100px;
+    clip: rect(50px, 70px, 100px, 0px)
+}
