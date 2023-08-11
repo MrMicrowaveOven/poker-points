@@ -7,7 +7,7 @@ import king from './cards/kc.webp'
 import faceDownCard from './cards/faceDown.jpeg'
 
 const Card = (props) => {
-    const {select, faceDown} = props
+    const {select, faceDown, number} = props
     const cardMap = [
         null,
         one,
@@ -25,21 +25,22 @@ const Card = (props) => {
     return (
         <div>
         {props.number &&
-            props.faceDown
+            (faceDown
                 ?
                     <img
                         className={className}
-                        onClick={() => select(props.number)}
+                        onClick={() => select(number)}
                         src={faceDownCard}
                         alt="playing card"
                     />
                 :
                     <img
                         className={className}
-                        onClick={() => select(props.number)}
-                        src={cardMap[props.number]}
+                        onClick={() => select(number)}
+                        src={cardMap[number]}
                         alt="playing card"
                     />
+            )
         }
         </div>
     )
