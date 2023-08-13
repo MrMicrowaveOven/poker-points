@@ -7,7 +7,7 @@ import king from './cards/kc.webp'
 import faceDownCard from './cards/faceDown.jpeg'
 
 const Card = (props) => {
-    const {select, faceDown, number, ownCard} = props
+    const {number, select, faceDown, ownCard} = props
     const cardMap = [
         null,
         one,
