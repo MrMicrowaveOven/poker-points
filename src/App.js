@@ -13,7 +13,7 @@ function App() {
     <div className="app">
       <Table selectedCard={selectedCard}>
       </Table>
-      <Input 
+      <Input
         displaySelectedCard={(num) => selectCard(num)}
       />
     </div>
