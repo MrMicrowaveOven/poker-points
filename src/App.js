@@ -1,20 +1,32 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Table from './Table.js'
 import Input from './Input.js'
-import { subscribe } from './AblyModule.js'
+
+import {configureAbly, useChannel} from "@ably-labs/react-hooks"
+
 import './App.css';
 
 function App() {
-  const [selectedCard, selectCard] = useState(null)
+  configureAbly({key: process.env['REACT_APP_ABLY_AUTH_KEY']})
+  const [gameState, setGameState] = useState([])
+  const [channel] = useChannel("players", (state) => setGameState(state))
+  const [selectedCard, setSelectedCard] = useState(null)
+  console.log(selectedCard)
 
-  subscribe()
+  useEffect(() => {
+    console.log("Card selected!")
+    channel.publish("players", {card: selectedCard})
+  }, [selectedCard])
+
+  console.log("GAME STATE")
+  console.log(gameState)
 
   return (
     <div className="app">
       <Table selectedCard={selectedCard}>
       </Table>
       <Input
-        displaySelectedCard={(num) => selectCard(num)}
+        displaySelectedCard={(num) => setSelectedCard(num)}
       />
     </div>
   );
