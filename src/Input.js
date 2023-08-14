@@ -13,6 +13,7 @@ const Input = (props) => {
         <div className="input">
             {CARD_NUMBERS.map((num) =>
                 <Card
+                    key={num}
                     number={num}
                     select={num => select(num)}
                     selected={num === selected}
