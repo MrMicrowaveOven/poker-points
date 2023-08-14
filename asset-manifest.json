@@ -1,23 +1,41 @@
 {
   "files": {
-    "main.css": "/poker-points/static/css/main.e8fb4c0d.css",
-    "main.js": "/poker-points/static/js/main.206f2f01.js",
+    "main.css": "/poker-points/static/css/main.b438247f.css",
+    "main.js": "/poker-points/static/js/main.bf21c407.js",
     "static/js/787.757b964a.chunk.js": "/poker-points/static/js/787.757b964a.chunk.js",
     "static/media/background.jpg": "/poker-points/static/media/background.392cedf08c4b0eeec228.jpg",
     "static/media/faceDown.jpeg": "/poker-points/static/media/faceDown.519f80c35146e7d1b015.jpeg",
+    "static/media/kh.webp": "/poker-points/static/media/kh.9f67aa6d641e372e97aa.webp",
+    "static/media/ks.webp": "/poker-points/static/media/ks.f87f6af07d4dd6a0721e.webp",
+    "static/media/kd.webp": "/poker-points/static/media/kd.cc2125f3c7c5d5e68b92.webp",
     "static/media/kc.webp": "/poker-points/static/media/kc.b2cc0f650fc73594894e.webp",
     "static/media/8c.webp": "/poker-points/static/media/8c.d31bf723c346cddfc664.webp",
+    "static/media/8s.webp": "/poker-points/static/media/8s.45a0b838958cd3dd4420.webp",
+    "static/media/8h.webp": "/poker-points/static/media/8h.06d3d5927fc31d651644.webp",
+    "static/media/8d.webp": "/poker-points/static/media/8d.57df7233dcfa5741d201.webp",
     "static/media/5c.webp": "/poker-points/static/media/5c.544a3c3865b117439093.webp",
+    "static/media/5h.webp": "/poker-points/static/media/5h.89464f35cb32b89b6c73.webp",
+    "static/media/5s.webp": "/poker-points/static/media/5s.ef1375beda0a80d7ebb9.webp",
+    "static/media/5d.webp": "/poker-points/static/media/5d.2caff0f69a591e0a5ce3.webp",
+    "static/media/3h.webp": "/poker-points/static/media/3h.bba02e0d9d922212b3a6.webp",
     "static/media/3c.webp": "/poker-points/static/media/3c.cc0cf2b6205e5d4b4042.webp",
+    "static/media/3s.webp": "/poker-points/static/media/3s.033f2c161c067d025d61.webp",
+    "static/media/3d.webp": "/poker-points/static/media/3d.1ca5073e210acaef829f.webp",
     "static/media/2c.webp": "/poker-points/static/media/2c.e478afbad7c011f07b77.webp",
+    "static/media/2s.webp": "/poker-points/static/media/2s.1b245e824b6522b6edb3.webp",
+    "static/media/2h.webp": "/poker-points/static/media/2h.53c1cd84830e030f9a00.webp",
+    "static/media/2d.webp": "/poker-points/static/media/2d.ffc381339cd1f8378dd6.webp",
+    "static/media/as.webp": "/poker-points/static/media/as.5d222234fc6a56ce2c67.webp",
     "static/media/ac.webp": "/poker-points/static/media/ac.e1eae83bd6b657be95bd.webp",
+    "static/media/ah.webp": "/poker-points/static/media/ah.2cc3aecde8372143aff0.webp",
+    "static/media/ad.webp": "/poker-points/static/media/ad.3053c2129900690257fc.webp",
     "index.html": "/poker-points/index.html",
-    "main.e8fb4c0d.css.map": "/poker-points/static/css/main.e8fb4c0d.css.map",
-    "main.206f2f01.js.map": "/poker-points/static/js/main.206f2f01.js.map",
+    "main.b438247f.css.map": "/poker-points/static/css/main.b438247f.css.map",
+    "main.bf21c407.js.map": "/poker-points/static/js/main.bf21c407.js.map",
     "787.757b964a.chunk.js.map": "/poker-points/static/js/787.757b964a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e8fb4c0d.css",
-    "static/js/main.206f2f01.js"
+    "static/css/main.b438247f.css",
+    "static/js/main.bf21c407.js"
   ]
 }
