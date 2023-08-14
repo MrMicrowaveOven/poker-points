@@ -11,12 +11,22 @@ const Table = (props) => {
     const MAX_NUMBER_PLAYERS = 10
 
     const numPlayers = playerChoices.filter(Number).length
-    const playerApproaches = (name) => {
+
+    const playerApproaches = name => {
         const nameDisplay = name == "" ? name : "Player approaches..."
         const numEmptySeats = MAX_NUMBER_PLAYERS - numPlayers
         const randomSeatNumber = Math.floor(Math.random() * numEmptySeats)
-        playerNames[randomSeatNumber] = nameDisplay
+        const oldPlayerNames = playerNames
+        oldPlayerNames[randomSeatNumber] = nameDisplay
+        setPlayerNames(oldPlayerNames)
     }
+
+    const playerMakesChoice = (playerNumber, choice) => {
+        const oldPlayerChoices = playerChoices
+        oldPlayerChoices[playerNumber] = choice
+        setPlayerChoices(oldPlayerChoices)
+    }
+
     return (
         <div className="table">
             <Names playerNames={playerNames}/>
@@ -35,18 +45,20 @@ const RevealButton = props =>
 const Names = (props) =>
     [...Array(10).keys()].map(num =>
         <Name
-            index={num + 1}
-            name={"Benji"}
+            index={num}
+            name={
+                // "a"
+                props.playerNames[num]
+            }
         />
     )
 
-const CardsOnTable = (props) => {
-    return [...Array(10).keys()].map(num => {
+const CardsOnTable = (props) =>
+    [...Array(10).keys()].map(num => {
         const ownCard = num === 0
-        return (<div className={"card-on-table card-on-table" + (num + 1)}>
+        return (<div className={"card-on-table card-on-table" + num}>
             <Card faceDown={!props.revealed} number={props.selectedCard} ownCard={ownCard} key={num}/>
         </div>)
     })
-}
 
 export default Table

@@ -4,52 +4,52 @@
     left: 0px;
 }
 
-.card-on-table1 {
+.card-on-table0 {
     left: 320px;
+    top: 280px;
+}
+
+.card-on-table1 {
+    left: 530px;
     top: 280px;
 }
 
 .card-on-table2 {
-    left: 530px;
-    top: 280px;
+    left: 640px;
+    top: 210px;
 }
 
 .card-on-table3 {
     left: 640px;
-    top: 210px;
-}
-
-.card-on-table4 {
-    left: 640px;
     top: 90px;
 }
 
-.card-on-table5 {
+.card-on-table4 {
     left: 530px;
     top: 20px;
 }
 
-.card-on-table6 {
+.card-on-table5 {
     left: 320px;
     top: 20px;
 }
 
-.card-on-table7 {
+.card-on-table6 {
     left: 110px;
     top: 20px;
 }
 
-.card-on-table8 {
+.card-on-table7 {
     left: 0px;
     top: 90px;
 }
 
-.card-on-table9 {
+.card-on-table8 {
     left: 0px;
     top: 210px;
 }
 
-.card-on-table10 {
+.card-on-table9 {
     left: 110px;
     top: 280px;
 }
