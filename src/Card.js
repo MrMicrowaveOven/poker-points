@@ -25,7 +25,7 @@ import kingSpades from './cards/ks.webp'
 import faceDownCard from './cards/faceDown.jpeg'
 
 const Card = (props) => {
-    const {number, select, faceDown, ownCard} = props
+    const {number, select, faceDown, ownCard, clickable} = props
     const cardMap = [
         null,
         oneClubs,
@@ -49,14 +49,12 @@ const Card = (props) => {
                     <div>
                         <img
                             className={className + (ownCard ? " top-half" : "")}
-                            onClick={() => select(number)}
                             src={faceDownCard}
                             alt="playing card"
                         />
                         {ownCard &&
                             <img
                                 className={className + " bottom-half"}
-                                onClick={() => select(number)}
                                 src={cardMap[number]}
                                 alt="playing card"
                             />
@@ -66,7 +64,7 @@ const Card = (props) => {
                     <div>
                         <img
                             className={className}
-                            onClick={() => select(number)}
+                            onClick={() => clickable && select(number)}
                             src={cardMap[number]}
                             alt="playing card"
                         />
