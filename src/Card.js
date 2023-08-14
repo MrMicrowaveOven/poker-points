@@ -44,7 +44,6 @@ const Card = (props) => {
                             />
                         }
                     </div>
-
                 :
                     <div>
                         <img
