@@ -13,17 +13,36 @@ function App() {
   const [playerChannel] = useChannel("players", (state) => setPlayerState(state.data))
   const [cardChannel] = useChannel("cards", (state) => setCardState(state.data))
   const [selectedCard, setSelectedCard] = useState(null)
-  const [playerName, setPlayerName] = useState("A player approaches...")
+  const [playerName, setPlayerName] = useState(null)
+  const [playerNumber, setPlayerNumber] = useState(null)
 
-  const playerNumber = 0
+  console.log(playerState)
+  console.log(cardState)
 
-  // console.log(cardState)
-  // console.log(playerState)
+  useEffect(() => {
+    assignPlayerNumber()
+  }, [])
+
+  const assignPlayerNumber = () => {
+    const numNulls = 10 - playerState.filter(String).length
+    const rand = Math.floor(Math.random() * numNulls)
+    let nullIndex = 0
+
+    for(let i = 0; i < 10; i++) {
+      if(playerState[i]) continue
+      if (nullIndex === rand) {
+        setPlayerNumber(i)
+        break
+      } else {
+        nullIndex++
+      }
+    }
+  }
 
   const updateCurrentPlayerState = (name) => {
-    const currentPlayersState = playerState
-    currentPlayersState[playerNumber] = name
-    playerChannel.publish("players", currentPlayersState)
+    const currentPlayerState = playerState
+    currentPlayerState[playerNumber] = name
+    playerChannel.publish("players", currentPlayerState)
   }
 
   useEffect(() => {
