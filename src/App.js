@@ -76,6 +76,17 @@ function App() {
   }
   const cardStateView = getCardStateView()
 
+  console.log("PLAYER NUMBER")
+  console.log(playerNumber)
+  console.log("PLAYER STATE")
+  console.log(playerState)
+  console.log("Player STATE VIEW")
+  console.log(playerStateView)
+  console.log("Card STATE")
+  console.log(cardState)
+  console.log("Card STATE VIEW")
+  console.log(cardStateView)
+
   return (
     <div className="app">
       <Table
