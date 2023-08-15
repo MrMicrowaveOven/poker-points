@@ -29,7 +29,7 @@ const Table = (props) => {
 
     return (
         <div className="table">
-            <Names playerNames={playerNames}/>
+            <Names playerNames={props.names}/>
             <CardsOnTable
                 revealed={revealed}
                 selectedCard={props.selectedCard}

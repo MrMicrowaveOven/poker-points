@@ -8,22 +8,41 @@ import './App.css';
 
 function App() {
   configureAbly({key: process.env['REACT_APP_ABLY_AUTH_KEY']})
-  const [gameState, setGameState] = useState([])
-  const [channel] = useChannel("players", (state) => setGameState(state))
+  const [cardState, setCardState] = useState([])
+  const [playerState, setPlayerState] = useState([])
+  const [playerChannel] = useChannel("players", (state) => setPlayerState(state.data))
+  const [cardChannel] = useChannel("cards", (state) => setCardState(state.data))
   const [selectedCard, setSelectedCard] = useState(null)
-  console.log(selectedCard)
+  const [playerName, setPlayerName] = useState("A player approaches...")
+
+  const playerNumber = 0
+
+  // console.log(cardState)
+  // console.log(playerState)
+
+  const updateCurrentPlayerState = (name) => {
+    const currentPlayersState = playerState
+    currentPlayersState[playerNumber] = name
+    playerChannel.publish("players", currentPlayersState)
+  }
 
   useEffect(() => {
-    console.log("Card selected!")
-    channel.publish("players", {card: selectedCard})
-  }, [selectedCard])
+    updateCurrentPlayerState(playerName)
+  }, [playerName])
 
-  console.log("GAME STATE")
-  console.log(gameState)
+  const updateCurrentCardState = (cardNumber) => {
+    const currentCardState = cardState
+    currentCardState[playerNumber] = cardNumber
+    cardChannel.publish("cards", currentCardState)
+  }
+
+  useEffect(() => {
+    updateCurrentCardState(selectedCard)
+  }, [selectedCard])
 
   return (
     <div className="app">
-      <Table selectedCard={selectedCard}>
+      <Table selectedCard={selectedCard} names={playerState}>
       </Table>
       <Input
         displaySelectedCard={(num) => setSelectedCard(num)}
