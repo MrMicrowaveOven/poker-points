@@ -33,8 +33,8 @@ function App() {
       }
     }
     // Get player name
-    // const givenName = prompt("What's your name?")
-    const givenName = "Benji"
+    const givenName = prompt("What's your name?")
+    // const givenName = "Benji"
     setPlayerName(givenName)
   }, [])
 
