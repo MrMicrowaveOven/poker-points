@@ -9,90 +9,118 @@ import './App.css';
 function App() {
   configureAbly({key: process.env['REACT_APP_ABLY_AUTH_KEY']})
   const emptyArray = Array.apply(null, Array(10)).map(function () {})
-  const [cardState, setCardState] = useState(emptyArray)
-  const [playerState, setPlayerState] = useState(emptyArray)
-  const [playerChannel] = useChannel("players", (state) => setPlayerState(state.data))
-  const [cardChannel] = useChannel("cards", (state) => setCardState(state.data))
-  const [selectedCard, setSelectedCard] = useState(null)
-  const [playerName, setPlayerName] = useState(null)
+
+  const [isHost, setIsHost] = useState(false)
+
+  const [playerTable, setPlayerTable] = useState(emptyArray)
+  const [cardTable, setCardTable] = useState(emptyArray)
+
+  const [playerChannel] = useChannel("player", (state) => isHost && hostUpdatesPlayerTable(state.data))
+  const [cardChannel] = useChannel("card", (state) => isHost && hostUpdatesCardTable(state.data))
+
+  const [playerTableChannel] = useChannel("playerTable", (state) => {
+    playerNumber === null && setPlayerNumber(getPlayerNumberByName(state.data))
+    setPlayerTable(state.data)
+  })
+  const [cardTableChannel] = useChannel("cardTable", (state) => setCardTable(state.data))
+
   const [playerNumber, setPlayerNumber] = useState(null)
+  const [playerName, setPlayerName] = useState(null)
+  const [selectedCard, setSelectedCard] = useState(null)
 
   useEffect(() => {
-    // Assign player number
-    const numNulls = playerState.filter(n => !n).length
-    const rand = Math.floor(Math.random() * numNulls)
-    let nullIndex = 0
-
-    for(let i = 0; i < 10; i++) {
-      if(playerState[i]) continue
-      if (nullIndex === rand) {
-        setPlayerNumber(i)
-        break
-      } else {
-        nullIndex++
-      }
-    }
+    // See if host
+    setIsHost(true)
     // Get player name
     const givenName = prompt("What's your name?")
-    // const givenName = "Benji"
     setPlayerName(givenName)
   }, [])
 
-  const updateCurrentPlayerState = (name) => {
-    const currentPlayerState = playerState
-    currentPlayerState[playerNumber] = name
-    playerChannel.publish("players", currentPlayerState)
-  }
-
   useEffect(() => {
-    updateCurrentPlayerState(playerName)
+    if (isHost) {
+      setPlayerNumber(0)
+      hostUpdatesPlayerTable({name: playerName, id: 0})
+    } else {
+      playerChannel.publish("player", {name: playerName})
+    }
   }, [playerName])
 
-  const updateCurrentCardState = (cardNumber) => {
-    const currentCardState = cardState
-    currentCardState[playerNumber] = cardNumber
-    cardChannel.publish("cards", currentCardState)
-  }
-
   useEffect(() => {
-    updateCurrentCardState(selectedCard)
+    cardChannel.publish("card", {id: playerNumber, card: selectedCard})
   }, [selectedCard])
 
-  const getPlayerStateView = () => {
-    const playerStateView = [...playerState]
-    for(let i = 0; i < playerNumber; i++) {
-      playerStateView.push(playerStateView.shift())
+  const hostUpdatesPlayerTable = ((data) => {
+    console.log("UPDATING PLAYERS TABLE")
+    let playerId = data.id
+    if(playerId === undefined) {
+      const numNulls = playerTable.filter(n => !n).length
+      const rand = Math.floor(Math.random() * numNulls)
+      let nullIndex = 0
+      for(let i = 0; i < 10; i++) {
+        if(playerTable[i]) continue
+        if (nullIndex === rand) {
+          playerId = i
+          break
+        } else {
+          nullIndex++
+        }
+      }
     }
-    return playerStateView
-  }
-  const playerStateView = getPlayerStateView()
+    const currentPlayerTable = playerTable
+    currentPlayerTable[playerId] = data.name
+    setPlayerTable(currentPlayerTable)
+    playerTableChannel.publish("playerTable", currentPlayerTable)
+  })
 
-  const getCardStateView = () => {
-    const cardStateView = [...cardState]
+  const getPlayerNumberByName = (data) =>
+    data.findIndex(player => player.name === playerName)
+
+  const hostUpdatesCardTable = ((data) => {
+    const playerNumber = data.id
+    const cardNumber = data.card
+    const currentCardTable = cardTable
+    currentCardTable[playerNumber] = cardNumber
+    setCardTable(currentCardTable)
+    cardTableChannel.publish("cardTable", currentCardTable)
+  })
+
+  const getPlayerTableView = () => {
+    const playerTableView = [...playerTable]
     for(let i = 0; i < playerNumber; i++) {
-      cardStateView.push(cardStateView.shift())
+      playerTableView.push(playerTableView.shift())
     }
-    return cardStateView
+    return playerTableView
   }
-  const cardStateView = getCardStateView()
+  const playerTableView = getPlayerTableView()
 
+  const getCardTableView = () => {
+    const cardTableView = [...cardTable]
+    for(let i = 0; i < playerNumber; i++) {
+      cardTableView.push(cardTableView.shift())
+    }
+    return cardTableView
+  }
+  const cardTableView = getCardTableView()
+
+  console.log("PLAYER NAME")
+  console.log(playerName)
   console.log("PLAYER NUMBER")
   console.log(playerNumber)
-  console.log("PLAYER STATE")
-  console.log(playerState)
+  console.log("PLAYER Table")
+  console.log(playerTable)
   console.log("Player STATE VIEW")
-  console.log(playerStateView)
-  console.log("Card STATE")
-  console.log(cardState)
-  console.log("Card STATE VIEW")
-  console.log(cardStateView)
+  console.log(playerTableView)
+  // console.log("Card STATE")
+  // console.log(cardState)
+  // console.log("Card STATE VIEW")
+  // console.log(cardTableView)
 
   return (
     <div className="app">
       <Table
         selectedCard={selectedCard}
-        names={playerStateView}
-        cards={cardStateView}
+        names={playerTableView}
+        cards={cardTableView}
       >
       </Table>
       <Input
